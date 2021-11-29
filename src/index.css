@@ -1,13 +1,99 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+
+*,
+::before,
+::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  margin: 5rem auto;
+  width: 85vw;
+  max-width: 650px;
+}
+
+.title {
+  font-family: 'Comforter', cursive;
+  font-size: 70px;
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: auto 70px 60px;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.form label {
+  text-transform: capitalize;
+  letter-spacing: 1.2px;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.form input,
+.form button {
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  color: #222;
+}
+
+.form input {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.form button {
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  background: transparent;
+  border: 1px solid #ddd;
+  color: #fff;
+  cursor: pointer;
+}
+
+article p {
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.icon-warning {
+  display: grid;
+  grid-template-columns: auto auto;
+  font-size: 3rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem 0;
+}
+
+.icon-warning p {
+  padding-top: 1rem;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+}
+
+.refresh-icon {
+  color: #fff;
+  width: 2rem;
+  height: 2rem;
+  background: #111;
+  border-radius: 50%;
+  padding: 0.1rem;
+  cursor: pointer;
 }

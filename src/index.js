@@ -1,17 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import data_generate from './lorem_data';
+import { IoMdRefresh } from 'react-icons/io';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const App = () => {
+  // default input is 0
+  const [count, setCount] = useState(0);
+  const [textGenerate, setTextGenerate] = useState([]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let num = Number(count);
+    if (count <= 0) {
+      num = 0;
+    }
+    if (count >= 5) {
+      num = 5;
+    }
+    setTextGenerate(data_generate.slice(0, num));
+  };
+  return (
+    <section>
+      <h2 className='title'>Lorem Ipsum</h2>
+      <form onSubmit={handleSubmit}>
+        <div className='form'>
+          <label htmlFor='text'>lorem generate</label>
+          <input
+            type='number'
+            id='paragraph'
+            name='paragraph'
+            value={count}
+            onChange={(e) => setCount(e.target.value)}
+          />
+          <button className='btn'>Show</button>
+        </div>
+      </form>
+      <article>
+        {/* display textGenerate */}
+        {textGenerate.map((text, index) => {
+          return <p key={index}>{text}</p>;
+        })}
+      </article>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+      {count <= -1 && (
+        <article>
+          <div className='icon-warning'>
+            <IoMdRefresh className='refresh-icon' onClick={() => setCount(1)} />
+            <p>Sorry, minimum generate is 1</p>
+          </div>
+        </article>
+      )}
+    </section>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
